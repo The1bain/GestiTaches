@@ -5,4 +5,3 @@ GestiTaches est une application web de gestion de tâches personnelles. Elle per
 
 ## Membres de l'équipe
 - The1bain — Responsable du dépôt GitHub
-- Autres membres — À compléter avec leurs noms et leurs rôles.
