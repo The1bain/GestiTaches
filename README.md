@@ -5,3 +5,16 @@ GestiTaches est une application web de gestion de tâches personnelles. Elle per
 
 ## Membres de l'équipe
 - The1bain — Responsable du dépôt GitHub et du projet en entier
+
+## Stratégie de branchement
+
+La stratégie choisie est GitHub Flow. Elle est adaptée à ce projet individuel car elle est simple et permet de développer chaque fonctionnalité sur une branche séparée avant de la fusionner dans la branche principale via une Pull Request.
+
+## Convention de nommage des branches
+
+- `main` : branche principale et stable du projet.
+- `feature/nom-court` : ajout d'une fonctionnalité.
+- `fix/nom-court` : correction d'un bogue.
+- `docs/nom-court` : modification de la documentation.
+
+Chaque modification sera effectuée sur une branche dédiée, puis intégrée à `main` à travers une Pull Request.
