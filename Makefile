@@ -2,6 +2,7 @@
 .PHONY: build test clean
 
 build:
+	npm.cmd ci
 	node build.js
 
 
