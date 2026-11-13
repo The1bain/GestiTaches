@@ -6,3 +6,11 @@ build/
 coverage/
 *.log
 .DS_Store
+# Fichiers generes par le build
+dist/
+
+# Dependances Node.js
+node_modules/
+
+# Fichiers de logs
+*.log
