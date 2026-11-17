@@ -331,4 +331,12 @@ public class ServicePretTest {
 
         assertFalse(pretSauvegarde.estActif());
     }
+
+    @Test
+    @DisplayName("Demonstration CI - echec volontaire")
+    void testEchecVolontaireCI() {
+
+        // Test incorrect volontaire pour le TD 3
+        assertEquals(10, 20);
+    }
 }
