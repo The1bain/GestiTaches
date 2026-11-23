@@ -241,3 +241,47 @@ Les deux Pull Requests ont été fusionnées avec succès.
 - Backlog GitHub Projects : https://github.com/users/The1bain/projects/1/views/2
 - Pull Request #18 : https://github.com/The1bain/GestiTaches/pull/18
 - Pull Request #19 : https://github.com/The1bain/GestiTaches/pull/19
+
+
+## Lancer en local avec Docker
+
+### Prérequis
+
+- Docker Desktop installé et démarré
+- Docker Compose disponible
+
+### Démarrer l'application
+
+Depuis la racine du projet, exécuter :
+
+```bash
+docker compose up -d --build
+```
+
+### Accéder à l'application
+
+Ouvrir dans le navigateur :
+
+http://localhost:8080
+
+### Vérifier les conteneurs
+
+```bash
+docker compose ps
+```
+
+### Consulter les journaux
+
+```bash
+docker compose logs
+```
+
+### Arrêter l'application
+
+```bash
+docker compose down
+```
+
+### Documentation
+
+Consulter le fichier `DOCKER.md` pour les explications et les commandes supplémentaires.
