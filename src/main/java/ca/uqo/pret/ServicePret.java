@@ -7,8 +7,12 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.NoSuchElementException;
 import java.util.UUID;
+import java.util.logging.Logger;
 
 public class ServicePret {
+
+    private static final Logger log =
+            Logger.getLogger(ServicePret.class.getName());
 
     static final int MAX_PRETS_ACTIFS = 3;
     static final int DUREE_MAX_JOURS = 14;
@@ -72,6 +76,9 @@ public class ServicePret {
         materiels.sauvegarder(m);
         prets.sauvegarder(p);
 
+        log.info("Prêt créé : pretId=" + p.id()
+                + ", materielId=" + materielId);
+
         return p;
     }
 
@@ -104,6 +111,9 @@ public class ServicePret {
                 p.echeance(),
                 aujourdhui
         ));
+
+        log.info("Prêt retourné : pretId=" + p.id()
+                + ", materielId=" + p.materielId());
 
         return calculerPenalite(
                 p.echeance(), aujourdhui);

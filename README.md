@@ -285,3 +285,31 @@ docker compose down
 ### Documentation
 
 Consulter le fichier `DOCKER.md` pour les explications et les commandes supplémentaires.
+
+## TD5 — Release Candidate v1.0.0-rc.1
+
+### Vérification de santé
+Endpoint : http://localhost:8080/actuator/health
+
+Réponse : {"status":"UP"}
+
+Limitation : la réponse est statique et ne vérifie pas PostgreSQL.
+
+### Tests Java
+15 tests Maven réussis, sans échec.
+
+### Journalisation
+Les logs JSON des créations et retours de prêts ont été vérifiés pendant les tests Maven.
+
+### Sécurité
+Le fichier .env est ignoré par Git.
+
+### Dépendances
+Dependabot surveille Maven, npm et Docker.
+
+Le dossier sbom contient les inventaires CycloneDX Maven.
+
+### Documentation
+- RELEASE.md : vérifications et réponses du TD5.
+- CHANGELOG.md : changements et limitations.
+- DOCKER.md : configuration Docker.
