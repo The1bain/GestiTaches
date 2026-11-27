@@ -9,7 +9,7 @@ on:
 
 jobs:
   tests:
-    name: Tests Maven et JaCoCo
+    name: Tests Maven, JaCoCo et SBOM
     runs-on: ubuntu-latest
 
     steps:
@@ -33,3 +33,12 @@ jobs:
           name: rapport-jacoco
           path: target/site/jacoco/
           if-no-files-found: warn
+
+      - name: Publier le SBOM CycloneDX
+        uses: actions/upload-artifact@v4
+        with:
+          name: sbom
+          path: |
+            target/bom.json
+            target/bom.xml
+          if-no-files-found: error
