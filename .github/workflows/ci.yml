@@ -9,7 +9,7 @@ on:
 
 jobs:
   tests:
-    name: Tests Maven, JaCoCo et SBOM
+    name: Tests Maven et JaCoCo
     runs-on: ubuntu-latest
 
     steps:
