@@ -1,4 +1,4 @@
-﻿# TD5 — Release Candidate
+# TD5 — Release Candidate
 
 ## Partie 1 — Endpoint de santé
 
@@ -94,17 +94,17 @@ Aucun véritable secret n'a été identifié dans les fichiers
 suivis lors de cette vérification.
 
 La vérification des nouveaux fichiers et de l'historique Git
-reste à effectuer.
+a été effectuée.
 
 ## Partie 4 — Dependabot et SBOM
 
 ### Configuration de Dependabot
 
 Le fichier .github/dependabot.yml configure la surveillance
-hebdomadaire des dépendances Maven, npm et Docker.
+hebdomadaire des dépendances Maven, GitHub Actions, npm et Docker.
 
 Dependabot pourra proposer des mises à jour des dépendances
-lorsque cette configuration sera publiée sur GitHub.
+car cette configuration est maintenant publiée sur GitHub.
 
 ### Génération du SBOM
 
@@ -123,3 +123,76 @@ et les dépendances Maven du projet.
 Le SBOM généré couvre la partie Maven du projet.
 Il ne constitue pas un inventaire complet des dépendances
 npm ni des composants des images Docker.
+
+
+## Réponses complémentaires aux questions du TD5
+
+### Question 2.4 — Avantages des logs JSON
+
+Les logs JSON sont plus faciles à lire et à analyser automatiquement
+par des outils de supervision.
+
+Contrairement aux logs en texte libre, ils utilisent une structure
+avec des champs comme timestamp, level, logger et message.
+
+Cela facilite la recherche des erreurs et le diagnostic.
+
+Il ne faut jamais enregistrer dans les logs :
+- Les mots de passe.
+- Les jetons d'authentification ou clés API.
+
+### Question 3.3 — Stockage des secrets dans GitHub
+
+Les secrets nécessaires au pipeline CI doivent être stockés
+dans GitHub Actions Secrets, dans les paramètres du dépôt :
+
+Settings > Secrets and variables > Actions.
+
+Ils peuvent ensuite être utilisés dans les workflows
+sans écrire directement leurs valeurs dans le code.
+
+### Question 3.4 — Mot de passe publié par erreur
+
+Non, supprimer le fichier dans un nouveau commit ne suffit pas.
+
+Le mot de passe peut toujours être présent dans l'historique Git.
+
+Il faut :
+- Révoquer ou changer immédiatement le mot de passe compromis.
+- Vérifier les accès et les utilisations suspectes.
+- Retirer le secret de l'historique Git si nécessaire.
+- Vérifier qu'aucun autre secret n'a été exposé.
+
+### Question 4.5 — Définition et utilité du SBOM
+
+Un SBOM (Software Bill of Materials) est un inventaire
+des composants logiciels et des dépendances d'une application.
+
+Il permet notamment :
+- D'identifier les bibliothèques utilisées.
+- De repérer les composants présentant des vulnérabilités.
+- De faciliter les mises à jour et les audits de sécurité.
+
+Dans GestiTaches, le SBOM Maven est généré avec CycloneDX
+et publié comme artefact dans GitHub Actions.
+
+### Question 5.4 — Signification de -rc.1
+
+Selon le versionnement sémantique (SemVer), le suffixe
+-rc.1 signifie Release Candidate 1.
+
+Il s'agit de la première version candidate avant
+la publication d'une version stable.
+
+La version peut encore contenir des problèmes à corriger
+avant la version définitive 1.0.0.
+
+## Mise à jour des vérifications
+
+- Dependabot surveille Maven, GitHub Actions, npm et Docker.
+- Dependabot alerts et security updates sont activés.
+- Une alerte modérée concernant minimatch est ouverte.
+- Aucune alerte critique n'était visible lors de la vérification.
+- Le pipeline CI a publié les artefacts rapport-jacoco et sbom.
+- La commande git log --all -- .env n'a affiché aucun commit.
+- La version Maven du projet est maintenant 1.0.0-rc.1.
